@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 
 class Edashboard3Controller extends GetxController {
-  final RxBool isLoading = false.obs;
-  final RxBool hasError = false.obs;
-  final RxString errorMessage = "".obs;
-  final RxInt counter = 0.obs;
+  bool isLoading = false;
+  bool hasError = false;
+  String errorMessage = "";
+  int counter = 0;
 
   @override
   void onInit() {
@@ -13,24 +13,26 @@ class Edashboard3Controller extends GetxController {
   }
 
   Future<void> initializeData() async {
-    isLoading.value = true;
+    isLoading = true;
+    update();
     try {
       // Simulate API call
       await Future.delayed(const Duration(seconds: 2));
-      isLoading.value = false;
-      hasError.value = false;
+      isLoading = false;
+      hasError = false;
     } catch (e) {
-      isLoading.value = false;
-      hasError.value = true;
-      errorMessage.value = e.toString();
+      isLoading = false;
+      hasError = true;
+      errorMessage = e.toString();
     }
+    update();
   }
 
   void increment() {
-    counter.value++;
+    counter++;
   }
 
   void decrement() {
-    counter.value--;
+    counter--;
   }
 }

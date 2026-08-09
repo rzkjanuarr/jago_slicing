@@ -14,17 +14,17 @@ class Edashboard2View extends StatelessWidget {
       body: SafeArea(
         child: GetBuilder<Edashboard2Controller>(
           builder: (controller) {
-            // Kondisi Loading
+            // kondisi loading
             if (controller.isLoading) {
               return Center(child: CircularProgressIndicator());
             }
 
-            // Kondisi Error
+            // kondisi error
             if (controller.hasError) {
               return Center(child: Text("Error: ${controller.errorMessage}"));
             }
 
-            // Tampilan Utama
+            // tampilan utama
             return SingleChildScrollView(
               child: Column(
                 children: [
@@ -32,33 +32,30 @@ class Edashboard2View extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: Row(
                       children: [
+                        Image.network(
+                          "https://cdn-icons-png.flaticon.com/128/732/732260.png",
+                          width: 50.0,
+                          height: 50.0,
+                          fit: BoxFit.cover,
+                        ),
+                        const SizedBox(width: 5.0),
                         Expanded(
-                          child: Row(
-                            children: [
-                              Image.network(
-                                "https://cdn-icons-png.flaticon.com/128/871/871397.png",
-                                width: 50.0,
-                                height: 50.0,
-                                fit: BoxFit.cover,
-                              ),
-                              const SizedBox(width: 5.0),
-                              Text(
-                                "Gaming Store",
-                                style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            "Gaming Store",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         CircleAvatar(
-                          backgroundColor: Colors.grey[500]!,
+                          backgroundColor: Colors.grey,
                           child: Icon(Icons.person, color: Colors.white),
                         ),
                       ],
                     ),
                   ),
+                  const SizedBox(height: 20.0),
                   Builder(
                     builder: (context) {
                       List images = [
@@ -100,6 +97,7 @@ class Edashboard2View extends StatelessWidget {
                       );
                     },
                   ),
+                  const SizedBox(height: 20.0),
                   Container(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
@@ -110,7 +108,7 @@ class Edashboard2View extends StatelessWidget {
                               child: Text(
                                 "Categories",
                                 style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -141,22 +139,22 @@ class Edashboard2View extends StatelessWidget {
                           itemBuilder: (BuildContext context, int index) {
                             var item = controller.categories[index];
                             return Container(
-                              padding: const EdgeInsets.all(12.0),
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(12.0),
                                 ),
                               ),
+                              padding: const EdgeInsets.all(12.0),
                               child: Row(
                                 children: [
                                   Expanded(
                                     child: Text(
                                       item,
                                       style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12.0,
                                         color: Colors.white,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
@@ -173,6 +171,7 @@ class Edashboard2View extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 20.0),
                   Container(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
@@ -183,7 +182,7 @@ class Edashboard2View extends StatelessWidget {
                               child: Text(
                                 "Discount",
                                 style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -210,7 +209,7 @@ class Edashboard2View extends StatelessWidget {
                               ),
                           itemCount: controller.products.length,
                           shrinkWrap: true,
-                          physics: ScrollPhysics(),
+                          physics: const ScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) {
                             var item = controller.products[index];
                             return Container(
@@ -226,7 +225,7 @@ class Edashboard2View extends StatelessWidget {
                                           fit: BoxFit.cover,
                                         ),
                                         borderRadius: BorderRadius.all(
-                                          Radius.circular(8.0),
+                                          Radius.circular(12.0),
                                         ),
                                       ),
                                       child: Stack(
