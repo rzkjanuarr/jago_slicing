@@ -36,7 +36,7 @@ class Edashboard3View extends StatelessWidget {
                         height: 50.0,
                         fit: BoxFit.cover,
                       ),
-                      const SizedBox(width: 5.0),
+                      const SizedBox(width: 10.0),
                       Expanded(
                         child: Text(
                           "Gaming Store",
@@ -48,15 +48,15 @@ class Edashboard3View extends StatelessWidget {
                       ),
                       CircleAvatar(
                         backgroundColor: Colors.grey,
-                        child: Icon(Icons.person, color: Colors.white),
+                        child: Icon(Icons.favorite, color: Colors.white),
                       ),
                     ],
                   ),
                   const SizedBox(height: 20.0),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 300.0,
                     clipBehavior: Clip.antiAlias,
+                    height: 300.0,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
@@ -74,35 +74,35 @@ class Edashboard3View extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(20.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "ADIDAS",
+                                "Adidas",
                                 style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
                               ),
                               Expanded(
                                 child: Text(
-                                  "GAZELLE SUEDE",
+                                  "Gazelle Suede",
                                   style: TextStyle(
-                                    fontSize: 24.0,
+                                    fontSize: 20.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
                               Text(
-                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets.",
-                                overflow: TextOverflow.ellipsis,
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. ",
                                 maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.normal,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
                               ),
@@ -117,7 +117,7 @@ class Edashboard3View extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 1.0 / 1.5,
+                          childAspectRatio: 1.0 / 1.4,
                           crossAxisCount: 2,
                           mainAxisSpacing: 10,
                           crossAxisSpacing: 10,
@@ -133,7 +133,6 @@ class Edashboard3View extends StatelessWidget {
                             Expanded(
                               child: Container(
                                 clipBehavior: Clip.antiAlias,
-                                width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image: NetworkImage(item["photo"]),
@@ -151,7 +150,7 @@ class Edashboard3View extends StatelessWidget {
                                       ),
                                     ),
                                     Container(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(20.0),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -159,7 +158,7 @@ class Edashboard3View extends StatelessWidget {
                                           Text(
                                             item["category"],
                                             style: TextStyle(
-                                              fontSize: 20.0,
+                                              fontSize: 18.0,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
                                             ),
@@ -168,7 +167,7 @@ class Edashboard3View extends StatelessWidget {
                                             child: Text(
                                               item["product_name"],
                                               style: TextStyle(
-                                                fontSize: 24.0,
+                                                fontSize: 20.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white,
                                               ),
@@ -176,10 +175,10 @@ class Edashboard3View extends StatelessWidget {
                                           ),
                                           Text(
                                             item["description"],
-                                            overflow: TextOverflow.ellipsis,
                                             maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: 12.0,
+                                              fontSize: 14.0,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
                                             ),
