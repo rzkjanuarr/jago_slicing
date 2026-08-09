@@ -11,7 +11,6 @@ class Edashboard1View extends StatelessWidget {
     Get.put(Edashboard1Controller());
 
     return Scaffold(
-      // backgroundColor: const Color(0xFFF5F5F5),
       body: SafeArea(
         child: GetBuilder<Edashboard1Controller>(
           builder: (controller) {
