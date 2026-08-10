@@ -29,17 +29,16 @@ class Edashboard4View extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Instagram Clone",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(color: Colors.transparent),
+                    child: Text(
+                      "Instagram Clone",
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
+                    ),
                   ),
                   const SizedBox(height: 20.0),
                   TextField(
@@ -59,8 +58,8 @@ class Edashboard4View extends StatelessWidget {
 
                   SingleChildScrollView(
                     controller: ScrollController(),
-                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
+                    clipBehavior: Clip.none,
                     child: Row(
                       children: List.generate(controller.userData.length, (
                         index,
@@ -68,92 +67,71 @@ class Edashboard4View extends StatelessWidget {
                         var item = controller.userData[index];
                         if (index == 0) {
                           return Container(
-                            height: 160.0,
+                            height: 160,
                             width: 120,
                             margin: const EdgeInsets.only(right: 12.0),
-                            decoration: const BoxDecoration(
+
+                            decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(8.0),
+                                Radius.circular(12.0),
                               ),
                             ),
-                            child: Stack(
-                              children: [
-                                Center(
-                                  child: Container(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Spacer(),
-                                        CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            Icons.add,
-                                            color: Colors.red,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 7.0),
-                                        Text(
-                                          "Add Story",
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ],
+                            child: Container(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Column(
+                                children: [
+                                  Spacer(),
+                                  CircleAvatar(
+                                    backgroundColor: Colors.green,
+                                    child: Icon(Icons.add, color: Colors.white),
+                                  ),
+                                  const SizedBox(height: 8.0),
+                                  Text(
+                                    "Add Story",
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         } else {
                           return Container(
-                            height: 160.0,
+                            height: 160,
                             width: 120,
                             margin: const EdgeInsets.only(right: 12.0),
-                            decoration: const BoxDecoration(
+
+                            decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(8.0),
+                                Radius.circular(12.0),
                               ),
                             ),
-                            child: Stack(
-                              children: [
-                                Center(
-                                  child: Container(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Spacer(),
-                                        CircleAvatar(
-                                          backgroundImage: NetworkImage(
-                                            item["photo"],
-                                          ),
-                                        ),
-                                        const SizedBox(height: 7.0),
-                                        Text(
-                                          item["name"],
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ],
+                            child: Container(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Column(
+                                children: [
+                                  Spacer(),
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                      item["photo"],
                                     ),
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(height: 8.0),
+                                  Text(
+                                    item["name"],
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         }
@@ -165,94 +143,94 @@ class Edashboard4View extends StatelessWidget {
                   SizedBox(
                     child: ListView.builder(
                       itemCount: controller.userList.length,
-                      shrinkWrap: true,
                       padding: EdgeInsets.zero,
                       clipBehavior: Clip.none,
+                      shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         var item = controller.userList[index];
                         return Container(
-                          margin: const EdgeInsets.only(bottom: 20.0),
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(color: Colors.transparent),
+                          margin: const EdgeInsets.only(bottom: 20.0),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            border: Border.all(width: 1, color: Colors.red),
+                          ),
                           child: Column(
                             children: [
                               Row(
                                 children: [
-                                  CircleAvatar(
-                                    backgroundImage: NetworkImage(
-                                      item["photo"],
-                                    ),
-                                  ),
-                                  const SizedBox(width: 10.0),
                                   Expanded(
                                     child: Row(
                                       children: [
+                                        CircleAvatar(
+                                          backgroundImage: NetworkImage(
+                                            item["photo"],
+                                          ),
+                                        ),
+                                        const SizedBox(width: 10.0),
                                         Text(
                                           item["name"],
-                                          overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: 14.0,
+                                            fontSize: 16.0,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         const SizedBox(width: 10.0),
                                         CircleAvatar(
                                           radius: 12.0,
-                                          backgroundColor: Colors.blue,
+                                          backgroundColor: Colors.green,
                                           child: Icon(
                                             Icons.check,
                                             color: Colors.white,
-                                            size: 16,
+                                            size: 20,
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
+                                  const SizedBox(width: 10.0),
                                   Text(
-                                    "${item["minute"].toString()} minute ago",
+                                    "${item["minute"].toString()} minute a ago",
                                     style: TextStyle(
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.normal,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  const SizedBox(width: 5.0),
-                                  const Icon(
-                                    Icons.more_horiz,
-                                    size: 24.0,
-                                    color: Colors.black,
-                                  ),
+                                  const SizedBox(width: 10.0),
+                                  const Icon(Icons.more_horiz, size: 20.0),
                                 ],
                               ),
-                              const SizedBox(height: 8.0),
+                              const SizedBox(height: 10.0),
                               Text(
-                                item["textComment"] ?? "",
-                                overflow: TextOverflow.ellipsis,
+                                item["textComment"],
                                 maxLines: 4,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                               ),
-                              const SizedBox(height: 8.0),
+                              const SizedBox(height: 10.0),
                               Row(
                                 children: [
                                   Expanded(
                                     child: Row(
                                       children: [
                                         Text(
-                                          "${item['likes']} Likes",
+                                          "${item["likes"].toString()} Likes",
+                                          overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.normal,
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         const SizedBox(width: 10.0),
                                         Text(
-                                          "${item['comment']} Comments",
+                                          "${item["comment"].toString()} Comments",
                                           style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.normal,
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       ],
@@ -261,32 +239,32 @@ class Edashboard4View extends StatelessWidget {
                                   Row(
                                     children: [
                                       CircleAvatar(
-                                        radius: 18.0,
-                                        backgroundColor: Colors.grey,
+                                        radius: 20.0,
+                                        backgroundColor: Colors.grey[300],
                                         child: Icon(
                                           Icons.favorite,
-                                          color: Colors.white,
-                                          size: 16,
+                                          color: Colors.black,
+                                          size: 24,
                                         ),
                                       ),
-                                      const SizedBox(width: 5.0),
+                                      const SizedBox(width: 10.0),
                                       CircleAvatar(
-                                        radius: 18.0,
-                                        backgroundColor: Colors.grey,
+                                        radius: 20.0,
+                                        backgroundColor: Colors.grey[300],
                                         child: Icon(
                                           Icons.message,
-                                          color: Colors.white,
-                                          size: 16,
+                                          color: Colors.black,
+                                          size: 24,
                                         ),
                                       ),
-                                      const SizedBox(width: 5.0),
+                                      const SizedBox(width: 10.0),
                                       CircleAvatar(
-                                        radius: 18.0,
-                                        backgroundColor: Colors.grey,
+                                        radius: 20.0,
+                                        backgroundColor: Colors.grey[300],
                                         child: Icon(
                                           Icons.share,
-                                          color: Colors.white,
-                                          size: 16,
+                                          color: Colors.black,
+                                          size: 24,
                                         ),
                                       ),
                                     ],
