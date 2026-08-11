@@ -73,6 +73,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 18,
       "minute": 5,
       "textComment": "This place looks absolutely amazing! 😍",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Tammara",
@@ -82,6 +85,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 12,
       "minute": 12,
       "textComment": "Love this photo! The vibes are perfect ✨",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Lidia",
@@ -91,6 +97,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 31,
       "minute": 18,
       "textComment": "Okay, this is definitely one of my favorites! ❤️",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Adila",
@@ -100,6 +109,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 7,
       "minute": 24,
       "textComment": "Such a beautiful moment! 🥰",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Nike",
@@ -109,6 +121,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 42,
       "minute": 31,
       "textComment": "You always know how to make a great post 🔥",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Sophia",
@@ -118,6 +133,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 23,
       "minute": 37,
       "textComment": "Where is this? I really want to visit! 😍",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Amanda",
@@ -127,6 +145,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 15,
       "minute": 43,
       "textComment": "Looking great! Hope you had a wonderful day 😊",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Olivia",
@@ -136,6 +157,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 56,
       "minute": 51,
       "textComment": "This deserves way more likes! 🔥🔥",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Mia",
@@ -145,6 +169,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 34,
       "minute": 58,
       "textComment": "Absolutely beautiful! Can't stop looking at this ❤️",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
     {
       "name": "Emma",
@@ -154,6 +181,9 @@ class Edashboard4Controller extends GetxController {
       "comment": 19,
       "minute": 65,
       "textComment": "Such a nice post! Thanks for sharing this 💕",
+      "imageRandom": "",
+      "nameHumanLike": "name",
+      "location": "",
     },
   ];
 }

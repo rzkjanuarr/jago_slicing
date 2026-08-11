@@ -282,7 +282,7 @@ class Edashboard5View extends StatelessWidget {
                                         ),
                                         const SizedBox(width: 10.0),
                                         Text(
-                                          "${item["comment"]} comments"
+                                          "${item["comment"]} comments",
                                           style: TextStyle(
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.bold,

@@ -8,77 +8,226 @@ class Edashboard7View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(Edashboard7Controller());
-    
-    return Obx(() {
-      if (controller.isLoading.value) {
-        return const Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
-      }
 
-      if (controller.hasError.value) {
-        return Scaffold(
-          body: Center(
-            child: Text("Error: ${controller.errorMessage.value}"),
-          ),
-        );
-      }
+    return Scaffold(
+      body: SafeArea(
+        child: GetBuilder<Edashboard7Controller>(
+          builder: (controller) {
+            // kondisi loading
+            if (controller.isLoading) {
+              return Center(child: CircularProgressIndicator());
+            }
 
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text("Edashboard7"),
-          actions: const [],
-        ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Text(
-                "UniqueID: ${UniqueKey()}",
-                style: const TextStyle(
-                  fontSize: 18.0,
-                ),
-              ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            // kondisi error
+            if (controller.hasError) {
+              return Center(child: Text("Error: ${controller.errorMessage}"));
+            }
+
+            // tampilan utama
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  IconButton(
-                    onPressed: () => controller.decrement(),
-                    icon: const Icon(Icons.remove, color: Colors.grey),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Newspaper",
+                              style: TextStyle(
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 5.0),
+                            Text(
+                              "Friday, 21 April 2026",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      CircleAvatar(
+                        radius: 24.0,
+                        backgroundColor: Colors.grey,
+                        child: Icon(
+                          Icons.favorite,
+                          color: Colors.black,
+                          size: 20,
+                        ),
+                      ),
+                    ],
                   ),
-                  Obx(() => Text(
-                    "${controller.counter.value}",
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey,
+                  const SizedBox(height: 20.0),
+                  AspectRatio(
+                    aspectRatio: 16 / 10,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: Colors.black.withAlpha(80),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12.0),
+                              ),
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(20.0),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 1,
+                                    color: Colors.red,
+                                  ),
+                                ),
+
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.more_horiz,
+                                      size: 24.0,
+                                      color: Colors.white,
+                                    ),
+                                    Spacer(),
+                                    CircleAvatar(
+                                      radius: 20.0,
+                                      backgroundColor: Colors.white,
+                                      child: Icon(
+                                        Icons.more_horiz,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              Container(
+                                padding: const EdgeInsets.all(20.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(0.0),
+                                  ),
+                                  border: Border.all(
+                                    width: 1,
+                                    color: Colors.red,
+                                  ),
+                                ),
+
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "29 Oct 2026",
+                                      style: TextStyle(
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5.0),
+                                    Text(
+                                      "Alex Jhones Should be Cross Examained",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5.0),
+                                    Text(
+                                      "by Network Times",
+                                      style: TextStyle(
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  )),
-                  IconButton(
-                    onPressed: () => controller.increment(),
-                    icon: const Icon(Icons.add, color: Colors.grey),
+                  ),
+                  const SizedBox(height: 20.0),
+                  Row(
+                    children: [
+                      Container(
+                        height: 140.0,
+                        width: 120,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://images.unsplash.com/photo-1601658591776-bca905a5ec35?q=80&w=654&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        ),
+                      ),
+                      const SizedBox(width: 10.0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "26 Jan 2026",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 5.0),
+                            Text(
+                              "Easy-to-Win Trade War Costs Taxpayers Money",
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: TextStyle(
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 12.0,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () => controller.initializeData(),
-                child: const Text("Reload"),
-              ),
-            ],
-          ),
+            );
+          },
         ),
-      );
-    });
+      ),
+    );
   }
 }
