@@ -180,47 +180,66 @@ class Edashboard7View extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20.0),
-                  Row(
-                    children: [
-                      Container(
-                        height: 140.0,
-                        width: 120,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://images.unsplash.com/photo-1601658591776-bca905a5ec35?q=80&w=654&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            ),
-                            fit: BoxFit.cover,
+                  SizedBox(
+                    child: ListView.builder(
+                      itemCount: controller.newsPaperData.length,
+                      padding: EdgeInsets.zero,
+                      clipBehavior: Clip.none,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        var item = controller.newsPaperData[index];
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            // border: Border.all(width: 1, color: Colors.black),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        ),
-                      ),
-                      const SizedBox(width: 10.0),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "26 Jan 2026",
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w500,
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 140.0,
+                                width: 120,
+                                margin: const EdgeInsets.only(bottom: 20.0),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(item["image"]),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8.0),
+                                  ),
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 5.0),
-                            Text(
-                              "Easy-to-Win Trade War Costs Taxpayers Money",
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.bold,
+                              const SizedBox(width: 12.0),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item["date"],
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5.0),
+                                    Text(
+                                      item["title"],
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
